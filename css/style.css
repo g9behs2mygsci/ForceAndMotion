@@ -1,1 +1,603 @@
 
+@font-face{font-family:Pyidaungsu;src:url('../assets/fonts/Pyidaungsu-2.5.3_Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:Pyidaungsu;src:url('../assets/fonts/Pyidaungsu-2.5.3_Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+:root{--brand:#0a7066;--brand-button:#087F78;--text:#243b38;--bg:#f8fcfb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Pyidaungsu,"Myanmar Text",sans-serif;line-height:1.75}
+.site-header{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:68px;padding:10px clamp(16px,4vw,58px);background:#fff;box-shadow:0 2px 12px #0000000a}
+.brand{font-family:Arial,sans-serif;font-size:19px;font-weight:700;color:var(--brand);white-space:nowrap;text-decoration:none}
+.main-nav{display:flex;align-items:center;gap:clamp(10px,1.8vw,24px)}
+.main-nav a{color:#285d56;text-decoration:none;font-size:14px;padding:7px 0;border-bottom:2px solid transparent;white-space:nowrap}
+.main-nav a:hover,.main-nav a.active{color:var(--brand);border-color:var(--brand)}
+.menu-toggle{display:none;border:0;border-radius:8px;padding:8px 12px;background:var(--brand-button);color:white;font-size:21px}
+.wp-content{min-height:70vh}
+.wp-content img{max-width:100%;height:auto}
+.wp-content figure{max-width:100%}
+.wp-content a{color:var(--brand)}
+.wp-content h1,.wp-content h2,.wp-content h3{color:var(--brand)}
+.site-footer{text-align:center;padding:22px;background:#fff;border-top:1px solid #e6efed;color:#70817e;font-size:13px}
+@media(max-width:900px){.main-nav{gap:10px}.main-nav a{font-size:12px}}
+@media(max-width:700px){
+ .site-header{min-height:62px}
+ .menu-toggle{display:block}
+ .main-nav{display:none;position:absolute;top:62px;left:0;right:0;padding:12px 18px 20px;background:#111519;box-shadow:0 12px 24px #0002;flex-direction:column;align-items:stretch;gap:7px}
+ .main-nav.open{display:flex}
+ .main-nav a{display:block;color:#fff;padding:11px 14px;border:1px solid #087F78;border-radius:12px;background:#1f282d;font-size:15px}
+ .main-nav a.active{color:#42C7B5;border-color:#42C7B5}
+}
+
+/* WordPress Additional CSS supplied by site owner */
+
+/* ==========================================
+   1. PREVIOUS PAGE BUTTON
+   Desktop, Tablet and Mobile
+========================================== */
+
+.mobile-prev-bar {
+  display: block !important;
+  position: fixed !important;
+  bottom: 16px !important;
+  left: 12px !important;
+  right: auto !important;
+  width: auto !important;
+  max-width: 180px !important;
+  z-index: 99999 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+.mobile-prev-bar a {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: 180px !important;
+  box-sizing: border-box !important;
+  padding: 12px 14px !important;
+  background: #087F78 !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+
+/* ==========================================
+   2. NEXT PAGE BUTTON
+   Desktop, Tablet and Mobile
+========================================== */
+
+.mobile-next-bar {
+  display: block !important;
+  position: fixed !important;
+  right: 12px !important;
+  left: auto !important;
+  bottom: 16px !important;
+  z-index: 99999 !important;
+  width: auto !important;
+  max-width: 180px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.mobile-next-bar a {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: 180px !important;
+  box-sizing: border-box !important;
+  padding: 12px 14px !important;
+  background: #087F78 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+
+/* ==========================================
+   3. MOBILE LANGUAGE FLAGS
+   Polylang language switcher
+========================================== */
+
+@media (max-width: 768px) {
+
+  .ct-panel li.lang-item,
+  .ct-panel li.menu-item-language {
+    display: inline-flex !important;
+    width: auto !important;
+    margin: 0 12px 0 0 !important;
+    vertical-align: middle !important;
+    background: transparent !important;
+  }
+
+  .ct-panel li.lang-item > a,
+  .ct-panel li.menu-item-language > a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    padding: 8px !important;
+  }
+
+  .ct-panel ul.menu:has(> li.lang-item),
+  .ct-panel ul.menu:has(> li.menu-item-language) {
+    display: grid !important;
+    grid-template-columns: max-content max-content !important;
+    column-gap: 12px !important;
+    row-gap: 0 !important;
+    align-items: center !important;
+  }
+
+  .ct-panel ul.menu > li:not(.lang-item):not(.menu-item-language) {
+    grid-column: 1 / -1;
+  }
+
+  .ct-panel ul.menu > li.lang-item,
+  .ct-panel ul.menu > li.menu-item-language {
+    grid-column: auto !important;
+    justify-self: start !important;
+  }
+}
+
+
+/* ==========================================
+   4. BLOCKSY MOBILE MENU BACKGROUND
+========================================== */
+
+@media (max-width: 768px) {
+
+  .ct-panel,
+  .ct-panel .ct-panel-content,
+  .ct-panel .ct-panel-content-inner {
+    background-color: #111519 !important;
+  }
+}
+
+
+/* ==========================================
+   5. MOBILE MENU CARD DESIGN
+   Myanmar Menu
+========================================== */
+
+@media (max-width: 768px) {
+
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li:not(.lang-item) > a.ct-menu-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    padding: 15px 16px !important;
+    margin: 0 !important;
+
+    background: #1f282d !important;
+    color: #ffffff !important;
+    border: 1px solid #087F78 !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+  }
+
+  /* Space between cards */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li:not(.lang-item) {
+    margin-bottom: 12px !important;
+  }
+
+  /* Default icon style */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li:not(.lang-item) > a.ct-menu-link::before {
+    content: "›" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 28px !important;
+    height: 28px !important;
+    flex: 0 0 28px !important;
+
+    background: #087F78 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    font-size: 23px !important;
+    line-height: 1 !important;
+  }
+
+  /* Home icon */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.menu-home > a.ct-menu-link::before {
+    content: "⌂" !important;
+  }
+
+  /* Lessons icon */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.menu-lessons > a.ct-menu-link::before {
+    content: "📚" !important;
+    font-size: 19px !important;
+  }
+
+  /* Quiz icon */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.menu-quiz > a.ct-menu-link::before {
+    content: "❓" !important;
+    font-size: 19px !important;
+  }
+
+  /* About icon */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.menu-about > a.ct-menu-link::before {
+    content: "ℹ" !important;
+  }
+
+  /* Active link */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.current-menu-item > a.ct-menu-link {
+    color: #42C7B5 !important;
+    border-color: #42C7B5 !important;
+  }
+
+  /* Hover link */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li:not(.lang-item) > a.ct-menu-link:hover {
+    color: #42C7B5 !important;
+    background: #263438 !important;
+    border-color: #42C7B5 !important;
+  }
+}
+
+
+/* Homepage: fit hero to the screen */
+body.home {
+  overflow: hidden !important;
+}
+
+body.home .wp-block-cover {
+  height: calc(100vh - 80px) !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+/* Remove extra space below the homepage hero */
+body.home .site-main,
+body.home .entry-content {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  body.home .wp-block-cover {
+    height: calc(100svh - 70px) !important;
+  }
+}
+
+
+/* Mobile: allow scrolling to see all homepage images */
+@media (max-width: 768px) {
+
+  body.home {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  body.home .wp-block-cover {
+    height: auto !important;
+    min-height: calc(100svh - 70px) !important;
+    overflow: visible !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  body.home .site-main,
+  body.home .entry-content {
+    overflow: visible !important;
+    height: auto !important;
+  }
+}
+
+
+/* ==========================================
+   EDULEARN MOBILE MENU - EXTRA ICONS
+========================================== */
+
+/* Contents / မာတိကာ */
+@media (max-width: 768px) {
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.menu-contents > a.ct-menu-link::before {
+    content: "📑" !important;
+    font-size: 18px !important;
+  }
+
+  /* References / လေ့လာချက်များ */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.menu-reference > a.ct-menu-link::before {
+    content: "📖" !important;
+    font-size: 18px !important;
+  }
+
+  /* Technologies / နည်းပညာများ */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.menu-technology > a.ct-menu-link::before {
+    content: "⚙️" !important;
+    font-size: 18px !important;
+  }
+
+  /* Acknowledgement / ကျေးဇူးတင်လွှာ */
+  #offcanvas nav.mobile-menu.menu-container
+  ul[id^="menu-"] > li.menu-acknowledgement > a.ct-menu-link::before {
+    content: "🙏" !important;
+    font-size: 18px !important;
+  }
+}
+
+
+/* E-Forces lesson video directly below the page heading */
+.eforce-video-wrap {
+  width: min(100% - 32px, 900px);
+  margin: 18px auto 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eforce-lesson-video {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+}
+
+@media (max-width: 600px) {
+  .eforce-video-wrap {
+    width: calc(100% - 24px);
+    margin: 14px auto 22px;
+  }
+  .eforce-lesson-video {
+    border-radius: 8px;
+  }
+}
+
+
+/* ==========================================================
+   CUSTOM HTML MOBILE MENU — WordPress menu styling adapted
+   for .main-nav links generated by js/main.js
+========================================================== */
+@media (max-width: 768px) {
+  body.menu-is-open {
+    overflow: hidden !important;
+  }
+
+  .site-header {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .site-header .menu-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    background: #087f78 !important;
+    color: #fff !important;
+    font-size: 25px !important;
+    line-height: 1 !important;
+  }
+
+  .site-header .main-nav {
+    display: none !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2000 !important;
+    box-sizing: border-box !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    padding: 76px 24px 30px !important;
+    margin: 0 !important;
+    background: #111519 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .site-header .main-nav.open {
+    display: flex !important;
+  }
+
+  .site-header .main-nav .menu-close {
+    position: fixed !important;
+    top: 14px !important;
+    right: 22px !important;
+    z-index: 2001 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #d7dddd !important;
+    font: 300 34px/1 Arial, sans-serif !important;
+    cursor: pointer !important;
+  }
+
+  .site-header .main-nav > a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    box-sizing: border-box !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    min-height: 74px !important;
+    padding: 14px 18px !important;
+    margin: 0 !important;
+    border: 1px solid #087f78 !important;
+    border-radius: 18px !important;
+    background: #1f282d !important;
+    color: #fff !important;
+    font-family: inherit !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    text-decoration: none !important;
+    white-space: normal !important;
+  }
+
+  .site-header .main-nav > a::before {
+    content: attr(data-icon) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 9px !important;
+    background: #087f78 !important;
+    color: #fff !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+  }
+
+  .site-header .main-nav > a.active {
+    border-color: #42c7b5 !important;
+    color: #fff !important;
+    background: #1f282d !important;
+  }
+
+  .site-header .main-nav > a:hover {
+    border-color: #42c7b5 !important;
+    background: #263438 !important;
+    color: #42c7b5 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header .main-nav {
+    padding: 66px 16px 22px !important;
+    gap: 10px !important;
+  }
+  .site-header .main-nav > a {
+    min-height: 66px !important;
+    padding: 12px 14px !important;
+    font-size: 16px !important;
+  }
+}
+
+
+/* ==========================================================
+   MENU FINAL ADJUSTMENTS
+   1) Hide the close button on desktop navigation
+   2) Compact mobile menu cards
+   3) Ensure menu overlay covers fixed previous/next buttons
+========================================================== */
+
+/* The close (×) control belongs only inside the mobile overlay. */
+.site-header .main-nav .menu-close {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  /* Place the overlay above fixed previous/next page controls. */
+  .site-header .main-nav {
+    z-index: 1000000 !important;
+    padding: 62px 22px 18px !important;
+    gap: 8px !important;
+  }
+
+  .site-header .main-nav.open {
+    display: flex !important;
+  }
+
+  .site-header .main-nav .menu-close {
+    display: flex !important;
+    position: fixed !important;
+    top: 10px !important;
+    right: 16px !important;
+    z-index: 1000001 !important;
+  }
+
+  /* Smaller menu cards so all links fit better on a phone screen. */
+  .site-header .main-nav > a {
+    min-height: 58px !important;
+    padding: 9px 14px !important;
+    gap: 11px !important;
+    border-radius: 15px !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+
+  .site-header .main-nav > a::before {
+    flex-basis: 31px !important;
+    width: 31px !important;
+    height: 31px !important;
+    border-radius: 8px !important;
+    font-size: 18px !important;
+  }
+
+  /* Keep the overlay itself above every fixed page-navigation button. */
+  .mobile-prev-bar,
+  .mobile-next-bar {
+    z-index: 99999 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header .main-nav {
+    padding: 58px 14px 14px !important;
+    gap: 7px !important;
+  }
+
+  .site-header .main-nav > a {
+    min-height: 54px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    border-radius: 13px !important;
+  }
+
+  .site-header .main-nav > a::before {
+    flex-basis: 29px !important;
+    width: 29px !important;
+    height: 29px !important;
+    font-size: 17px !important;
+  }
+}
+
+
+/* FINAL FIX: hide fixed Previous / Next controls while mobile menu is open.
+   The menu overlay should be the only visible layer above the page. */
+@media (max-width: 768px) {
+  body.menu-is-open .mobile-prev-bar,
+  body.menu-is-open .mobile-next-bar,
+  body.menu-is-open .mobile-prev-bar *,
+  body.menu-is-open .mobile-next-bar * {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
