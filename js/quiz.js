@@ -1,0 +1,30 @@
+(() => {
+ const questions = [
+  {type:'tf',q:'ဝတ္ထုတစ်ခုပေါ်သို့ ပြင်ပမှအားသက်ရောက်ခြင်းဖြင့် ဝတ္ထု၏မူလအခြေအနေကို ပြောင်းလဲနိုင်သည်။',a:0},
+  {type:'tf',q:'ဝတ္ထုတစ်ခုတည်း သီးခြားရှိလျှင် သက်ရောက်အားနှင့် တန်ပြန်သက်ရောက်အားတို့ ရှိနိုင်ပါသည်။',a:1},
+  {type:'tf',q:'အချိန်တစ်စက္ကန့်အတွင်း အမှတ်တစ်ခု၌ ဖြတ်သွားသော လှိုင်းအလျား (သို့) လှိုင်းလုံးအရေအတွက်ကို လွဲချိန်ဟုခေါ်သည်။',a:1},
+  {type:'tf',q:'လျှပ်စစ်သံလိုက်လှိုင်းသည် ကန့်လန့်လွှဲလှိုင်းအမျိုးအစားဖြစ်သည်။',a:0},
+  {type:'tf',q:'မက္ကနစ်လှိုင်းကို ဒြပ်သားလှိုင်းဟုလည်း ခေါ်ဆိုနိုင်သည်။',a:0},
+  {type:'tf',q:'မျက်နှာပြင်တစ်ခုပေါ်တွင် ရွေ့လျားနေသော အရာဝတ္ထုတိုင်း၌ ရွေ့လျားမှုကို ခုခံဟန်တားနေသော အားကို ရုန်းပြန်အားဟု ခေါ်သည်။',a:1},
+  {type:'tf',q:'လှိုင်းလုံးတစ်လုံးဖြတ်သွားရန် ကြာမြင့်သောအချိန်ကို လွှဲချိန်ဟုခေါ်သည်။',a:0},
+  {type:'tf',q:'မက္ကနစ်လှိုင်းသည် ဒြပ်သားကြားခံနယ် (အခဲ၊ အရည်၊ အငွေ့) ကိုဖြတ်သွားသော လှိုင်းဖြစ်သည်။',a:0},
+  {type:'tf',q:'လှိုင်းအမျိုးအစား ၃ မျိုးရှိသည်။',a:1},
+  {type:'tf',q:'လှိုင်းထိပ်၏အမြင့် (သို့) လှိုင်းခွက်၏အနက်ကို လှိုင်းအလျားဟုခေါ်သည်။',a:1},
+  {type:'mc',q:'သက်ရောက်မှုတိုင်းတွင် _____ ရှိသည်။',o:['တန်ပြန်သက်ရောက်မှု','ပွတ်မှု','ရုန်းပြန်မှု'],a:0},
+  {type:'mc',q:'အားသည် ရပ်နေသောဝတ္ထု (သို့) တစ်သမတ်တည်းရွေ့လျားနေသော ဝတ္ထုများ၏ _____ ကို ပြောင်းလဲစေသည်။',o:['ပုံပန်းအခြေအနေ','ပုံသဏ္ဌာန်','မူလအခြေအနေ'],a:2},
+  {type:'mc',q:'သက်ရောက်အား၏ပမာဏနှင့် တန်ပြန်သက်ရောက်အား၏ပမာဏ _____ သည်။',o:['မတူညီ','တူညီ','အချိုးကျ'],a:0},
+  {type:'mc',q:'ရပ်နေသောဝတ္ထုတစ်ခုပေါ်သို့ ဆန့်ကျင်ဘက်ဦးတည်နေသော အား ______ ခု သက်ရောက်ခြင်းကြောင့် ဝတ္ထုရွေ့လျားစေခဲ့လျှင် ယင်းအားကို ဟန်ချက်မညီအားဟု ခေါ်သည်။',o:['၃','၄','၂'],a:2},
+  {type:'mc',q:'ရေညှိတက်နေသော ကွန်ကရစ်လမ်းပေါ်တွင် လမ်းလျှောက်ခြင်းသည် ပွတ်မှုအားကို _____ စေနိုင်သည်။',o:['လျော့နည်း','များပြား','ခုခံဟန့်တား'],a:0},
+  {type:'mc',q:'မျက်နှာပြင်တစ်ခုပေါ်တွင် ရွေ့လျားနေသော အရာဝတ္ထုတိုင်း၌ ရွေ့လျားမှုကို ခုခံဟန်တားနေသော အားကို _____ ဟုခေါ်သည်။',o:['ရုန်းပြန်အား (Elastic Force)','တန်ပြန်သက်ရောက်အား (Reaction Force)','ပွတ်မှုအား (Frictional Force)'],a:2},
+  {type:'mc',q:'ကပ်လျက်ရှိသော လှိုင်းထိပ် (သို့) လှိုင်းခွက် ၂ ခုကြား အကွာအဝေးကို _____ ဟုခေါ်သည်။',o:['လှိုင်း၏လွှဲကျယ်','လှိုင်းအလျား','လှိုင်းအလျင်'],a:1},
+  {type:'mc',q:'လျှပ်စစ်သံလိုက်လှိုင်းသည် _____ လှိုင်းဖြစ်သည်။',o:['အလျားလိုက်လှိုင်း','မက္ကနစ်လှိုင်း','ကန့်လန့်လွှဲလှိုင်း'],a:2},
+  {type:'mc',q:'လှိုင်းအလျင် = ကြိမ်နှုန်း × ________',o:['လှိုင်း၏လွဲကျယ် (Amplitude, A)','လှိုင်းအလျား (Wave length, λ)','လှိုင်း၏လွှဲချိန် (Period, T)'],a:1},
+  {type:'mc',q:'လျှပ်စစ်သံလိုက်လှိုင်းသည် ကန့်လန့်လွှဲလှိုင်းအမျိုးအစားဖြစ်ပြီး _____ တွင်လည်း ဖြတ်သန်းသွားနိုင်သည်။',o:['ကြားခံနယ်','လေဟာနယ်','ဗလာနယ်'],a:2}
+ ];
+ const $=id=>document.getElementById(id); let index=0,answers=Array(questions.length).fill(null);
+ const mm=n=>String(n).replace(/[0-9]/g,d=>'၀၁၂၃၄၅၆၇၈၉'[+d]);
+ function render(){const q=questions[index],pct=Math.round(index/questions.length*100);$('progress-label').textContent=`မေးခွန်း ${mm(index+1)} / ${mm(questions.length)}`;$('progress-percent').textContent=mm(pct)+'%';$('progress-fill').style.width=pct+'%';$('question-number').textContent='QUESTION '+String(index+1).padStart(2,'0');$('section-label').textContent=index<10?'အပိုင်း (၁) · မှား/မှန်':'အဖြေမှန်ရွေး';$('question-text').textContent=q.q;$('quiz-feedback').textContent='';$('quiz-feedback').className='quiz-feedback';$('next-button').disabled=true;$('next-button').textContent=index===19?'ရလဒ်ကြည့်ရန် →':'နောက်မေးခွန်းသို့ →';const opts=q.type==='tf'?['မှန်','မှား']:q.o;$('answer-list').innerHTML='';opts.forEach((v,i)=>{const b=document.createElement('button');b.type='button';b.className='answer-option';b.innerHTML=`<span class="option-mark">${q.type==='tf'?['(မှန်)','(မှား)'][i]:['(က)','(ခ)','(ဂ)'][i]}</span><span></span>`;b.querySelector('span:last-child').textContent=v;b.addEventListener('click',()=>choose(i));$('answer-list').appendChild(b)});}
+ function choose(i){if(answers[index]!==null)return;answers[index]=i;const q=questions[index],correct=i===q.a;[...$('answer-list').children].forEach((b,n)=>{b.disabled=true;if(n===q.a)b.classList.add('correct');if(n===i&&!correct)b.classList.add('wrong');if(n===i)b.classList.add('selected')});$('quiz-feedback').textContent=correct?'✓ မှန်ကန်ပါတယ်။':'✕ မှားနေပါသည်။';$('quiz-feedback').classList.add(correct?'good':'bad');$('next-button').disabled=false;}
+ function finish(){if(answers.some(a=>a===null))return;const score=questions.reduce((s,q,i)=>s+(answers[i]===q.a?1:0),0),pct=Math.round(score/questions.length*100),wrong=questions.length-score;let medal=pct>=80?'🏆':pct>=50?'🌟':'💪',msg=pct>=80?'အလွန်ကောင်းမွန်ပါတယ်။':pct>=50?'ကောင်းပါတယ်။':'ပြန်လည်လေ့လာပြီး ထပ်ဖြေကြည့်ပါ။';$('quiz-shell').hidden=true;$('quiz-result').hidden=false;$('quiz-result').innerHTML=`<div class="result-medal">${medal}</div><div class="result-caption">သင်၏ Quiz ရလဒ်</div><div class="result-score">${mm(score)} / ၂၀</div><div class="result-message">${msg}</div><div class="result-stats"><div class="result-stat"><strong>${mm(pct)}%</strong><span>ရမှတ်ရာခိုင်နှုန်း</span></div><div class="result-stat"><strong>${mm(score)}</strong><span>အဖြေမှန်</span></div><div class="result-stat"><strong>${mm(wrong)}</strong><span>အဖြေမှား</span></div></div><h3>အဖြေပြန်လည်စစ်ဆေးရန်</h3><div class="review-list">${questions.map((q,i)=>`<div class="review-item ${answers[i]===q.a?'is-correct':''}"><strong>${mm(i+1)}။ ${q.q}</strong><small>သင်ရွေးထားသည် — ${q.type==='tf'?['မှန်','မှား'][answers[i]]:q.o[answers[i]]} · အဖြေမှန် — ${q.type==='tf'?['မှန်','မှား'][q.a]:q.o[q.a]}</small></div>`).join('')}</div><button class="result-primary" id="retry-button" type="button">ထပ်မံဖြေဆိုမည် ↻</button>`;$('retry-button').addEventListener('click',()=>{index=0;answers=Array(questions.length).fill(null);$('quiz-result').hidden=true;$('quiz-shell').hidden=false;render();window.scrollTo({top:0,behavior:'smooth'});});window.scrollTo({top:0,behavior:'smooth'});}
+ $('next-button').addEventListener('click',()=>{if(answers[index]===null)return;if(index===questions.length-1)finish();else{index++;render();}});render();
+})();
